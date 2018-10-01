@@ -30,7 +30,7 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
-// Middleware Setup
+// Middleware Setups
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -74,13 +74,11 @@ app.use(cors({
 const index = require('./routes/index');
 app.use('/', index);
 
-// const projectRoutes = require('./routes/project-routes');
-// app.use('/api', projectRoutes);
-
-// const taskRoutes = require('./routes/task-routes');
-// app.use('/api', taskRoutes);
-
 const authRoutes = require('./routes/auth-routes');
 app.use('/api', authRoutes);
+
+
+const fieldRoutes = require('./routes/field-routes');
+app.use('/', fieldRoutes)
 
 module.exports = app;
