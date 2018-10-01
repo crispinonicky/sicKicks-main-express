@@ -3,17 +3,17 @@ const Schema   = mongoose.Schema;
 const Team = require('./Team');
 
 
-const teamSchema = new Schema({
+const fieldSchema = new Schema({
   location: String,
   fieldName: String,
   time: String,
   matchType: String,
   price: Number,
-  teamsPlaying: [{type: String, ref: 'Team'}],
-  comments: [String],
+  teamsPlaying: [{type: Schema.Types.ObjectId}],
+  comments: [Object],
 });
 
-const Team = mongoose.model("Team", teamSchema);
+const Field = mongoose.model("Field", fieldSchema);
 
-module.exports = Team;
+module.exports = Field;
 

@@ -6,9 +6,9 @@ const Team = require('../models/Team');
 
 // GET route => to get all the teams
 router.get('/teams', (req, res, next) => {
-  Team.find().populate('tasks')
-    .then(allTheProjects => {
-      res.json(allTheProjects);
+  Team.find().populate('Field')
+    .then(allTheTeams => {
+      res.json(allTheTeams);
     })
     .catch(err => {
       res.json(err);
@@ -16,14 +16,17 @@ router.get('/teams', (req, res, next) => {
 });
 
 
-// POST route => to create a new project
-router.post('/projects', (req, res, next)=>{
+// POST route => to create a new team
+router.post('/teams', (req, res, next)=>{
  
-    Project.create({
-      title: req.body.title,
-      description: req.body.description,
-      owner: req.user._id,
-      tasks: []
+    Team.create({
+      players: req.body.players,
+      Creator: req.body.Creator,
+      avatar: req.body.avatar,
+      teamName: req.body.teamName,
+      needMembers: req.body.needMembers,
+      record: req.body.record,
+      league: req.body.league
     })
       .then(response => {
         res.json(response);
@@ -36,21 +39,20 @@ router.post('/projects', (req, res, next)=>{
 
 
 
-
-  // GET route => to get a specific project/detailed view
-router.get('/projects/:id', (req, res, next)=>{
+  // GET route => to get a specific team/detailed view
+router.get('/teams/:id', (req, res, next)=>{
 
     if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
       res.status(400).json({ message: 'Specified id is not valid' });
       return;
     }
   
-    // our projects have array of tasks' ids and 
+    // our teams have array of tasks' ids and 
     // we can use .populate() method to get the whole task objects
     //                                   ^
     //                                   |
     //                                   |
-    Project.findById(req.params.id).populate('tasks')
+    Team.findById(req.params.id).populate('tasks')
       .then(response => {
         res.json(response);
       })
@@ -63,17 +65,17 @@ router.get('/projects/:id', (req, res, next)=>{
 
 
 
-// PUT route => to update a specific project
-router.put('/projects/:id', (req, res, next)=>{
+// PUT route => to update a specific team
+router.put('/teams/:id', (req, res, next)=>{
 
     if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
       res.status(400).json({ message: 'Specified id is not valid' });
       return;
     }
   
-    Project.findByIdAndUpdate(req.params.id, req.body)
+    Team.findByIdAndUpdate(req.params.id, req.body)
       .then(() => {
-        res.json({message: `Project with ${req.params.id} is updated successfully.`});
+        res.json({message: `Team with ${req.params.id} is updated successfully.`});
       })
       .catch(err => {
         res.json(err);
@@ -85,17 +87,17 @@ router.put('/projects/:id', (req, res, next)=>{
 
   
   
-  // DELETE route => to delete a specific project
-  router.delete('/projects/:id', (req, res, next)=>{
+  // DELETE route => to delete a specific team
+  router.delete('/teams/:id', (req, res, next)=>{
   
     if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
       res.status(400).json({ message: 'Specified id is not valid' });
       return;
     }
   
-    Project.findByIdAndRemove(req.params.id)
+    Team.findByIdAndRemove(req.params.id)
       .then(() => {
-        res.json({message: `Project with ${req.params.id} is removed successfully.`});
+        res.json({message: `Team with ${req.params.id} is removed successfully.`});
       })
       .catch( err => {
         res.json(err);
