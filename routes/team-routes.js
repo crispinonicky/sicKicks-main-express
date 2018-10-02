@@ -25,7 +25,9 @@ router.post('/teams', (req, res, next)=>{
       avatar: req.body.avatar,
       teamName: req.body.teamName,
       needMembers: req.body.needMembers,
-      record: req.body.record,
+      wins: req.body.wins,
+      losses: req.body.losses,
+      draws: req.body.draws,
       league: req.body.league
     })
       .then(response => {

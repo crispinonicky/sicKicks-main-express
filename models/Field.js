@@ -7,10 +7,11 @@ const fieldSchema = new Schema({
   location: String,
   fieldName: String,
   time: String,
-  matchType: String,
+  // matchType: String,
   price: Number,
-  teamsPlaying: [{type: Schema.Types.ObjectId}],
-  comments: [Object],
+  // teamsPlaying: [{type: Schema.Types.ObjectId}],
+  teamsPlaying: [],
+  // comments: [Object],
 });
 
 const Field = mongoose.model("Field", fieldSchema);

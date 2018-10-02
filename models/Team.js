@@ -4,12 +4,15 @@ const Schema   = mongoose.Schema;
 
 
 const teamSchema = new Schema({
-  players: [{type: Schema.Types.ObjectId}],
+  // players: [{type: Schema.Types.ObjectId}],
+  players: [],
   Creator: String,
   avatar: String,
   teamName: String,
   needMembers: Boolean,
-  record: String,
+  wins: Number,
+  losses: Number,
+  draws: Number,
   league: String,
 });
 
