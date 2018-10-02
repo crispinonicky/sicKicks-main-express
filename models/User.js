@@ -13,7 +13,7 @@ const userSchema = new Schema({
   favoriteClub: String,
   followers: Number,
   following: Number,
-  // avatar: String,
+  avatar: String,
 });
 
 const User = mongoose.model("User", userSchema);

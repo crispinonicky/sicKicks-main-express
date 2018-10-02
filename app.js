@@ -9,9 +9,9 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 const cors         = require('cors');
-
-const session       = require('express-session');
-const passport      = require('passport');
+// const User         = require('./User');
+const session      = require('express-session');
+const passport     = require('passport');
 
 require('./config/passport');
 
