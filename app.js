@@ -18,7 +18,7 @@ require('./config/passport');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/sickicks', {useMongoClient: true})
+  .connect('mongodb://localhost/project-3-express', {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
@@ -79,10 +79,10 @@ app.use('/api', authRoutes);
 
 
 const fieldRoutes = require('./routes/field-routes');
-app.use('/fields', fieldRoutes)
+app.use('/api', fieldRoutes)
 
 
 const teamRoutes = require('./routes/team-routes');
-app.use('/teams', teamRoutes)
+app.use('/api', teamRoutes)
 
 module.exports = app;
