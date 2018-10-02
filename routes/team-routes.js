@@ -6,7 +6,7 @@ const Team = require('../models/Team');
 
 // GET route => to get all the teams
 router.get('/teams', (req, res, next) => {
-  Team.find().populate('Field')
+  Team.find().populate('User')
     .then(allTheTeams => {
       res.json(allTheTeams);
     })
