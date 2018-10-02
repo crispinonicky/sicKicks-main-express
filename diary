@@ -1,0 +1,45 @@
+Day 1:
+
+Inna: wow this is so cool.
+
+Nick: cooler than a cucumber 
+
+
+
+
+Rough Schedule:
+
+Monday - Wednesday:
+- Have user model done
+- Have user routes done (signup/login/signout)
+- Team model done (CRUD)
+- Field model done (CRUD)
+- Tourney model done (if we use it)
+
+Thursday + Friday:
+- Tourney routes (CRUD) (If we use it)
+- Start React
+
+Monday:
+- React (showing signup/login/logout page)
+- Team create
+- Team views
+- Team edit
+- Team delete
+
+Tuesday:
+- React (showing field page)
+- Field create
+- Field view
+- Field edit
+- Field delete
+- Bracket create
+- Bracket view
+
+Wednesday (Last day):
+- Bracket edit
+- Bracket delete
+- CSS
+- CSS
+- More CSS
+- And some CSS

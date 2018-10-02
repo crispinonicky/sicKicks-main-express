@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+.the-logo {
+  background-image: url('../images/thelogo.png');
+  height: 100px;
+  width: 250px;
+  background-size: cover;
+  // padding-left: 100px;
+}
