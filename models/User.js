@@ -11,9 +11,9 @@ const userSchema = new Schema({
   videos: String,
   playerPosition: String,
   favoriteClub: String,
-  followers: Number,
-  following: Number,
   avatar: String,
+  // followers: Number,
+  // following: Number,
 });
 
 const User = mongoose.model("User", userSchema);
