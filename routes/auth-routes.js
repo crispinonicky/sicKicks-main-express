@@ -11,7 +11,13 @@ const User       = require('../models/User');
 authRoutes.post('/signup', (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
-  
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const email = req.body.email;
+    const favoriteClub = req.body.favoriteClub;
+    const playerPosition = req.body.playerPosition;
+
+
     if (!username || !password) {
       res.status(400).json({ message: 'Provide username and password' });
       return;
@@ -38,8 +44,13 @@ authRoutes.post('/signup', (req, res, next) => {
         const hashPass = bcrypt.hashSync(password, salt);
   
         const aNewUser = new User({
-            username:username,
-            password: hashPass
+            username: username,
+            password: hashPass,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            favoriteClub: favoriteClub,
+            playerPosition: playerPosition
         });
   
         aNewUser.save(err => {

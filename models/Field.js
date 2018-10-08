@@ -11,6 +11,8 @@ const fieldSchema = new Schema({
   price: Number,
   // teamsPlaying: [{type: Schema.Types.ObjectId}],
   teamsPlaying: [],
+  homeTeam: String,
+  awayTeam: String
   // comments: [Object],
 });
 
