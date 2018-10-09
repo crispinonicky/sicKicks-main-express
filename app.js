@@ -71,6 +71,11 @@ app.use(cors({
   origin: ['http://localhost:3000']
 }));
 
+
+
+
+
+
 const index = require('./routes/index');
 app.use('/', index);
 
@@ -84,5 +89,15 @@ app.use('/api', fieldRoutes)
 
 const teamRoutes = require('./routes/team-routes');
 app.use('/api', teamRoutes)
+
+
+
+
+app.use((req, res, next) => {
+  // If no routes match, send them the React HTML.
+  res.sendFile(__dirname + "/public/index.html");
+});
+
+
 
 module.exports = app;
