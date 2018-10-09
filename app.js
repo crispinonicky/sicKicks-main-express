@@ -79,7 +79,7 @@ app.use(cors({
 
 
 const index = require('./routes/index');
-app.use('/', index);
+app.use('/api', index);
 
 const authRoutes = require('./routes/auth-routes');
 app.use('/api', authRoutes);
