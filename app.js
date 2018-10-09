@@ -17,11 +17,13 @@ require('./config/passport');
 
 
 mongoose.Promise = Promise;
+
 mongoose
-  .connect('mongodb://localhost/project-3-express', {useMongoClient: true})
-  .then(() => {
-    console.log('Connected to Mongo!')
-  }).catch(err => {
+  .connect(process.env.MONGODB_URI)
+  .then(x => {
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+  })
+  .catch(err => {
     console.error('Error connecting to mongo', err)
   });
 
@@ -68,7 +70,7 @@ app.use(passport.session());
 
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:3000']
+  origin: ['http://localhost:3000', 'http://www.sickicks.herokuapp.com']
 }));
 
 
