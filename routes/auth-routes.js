@@ -14,10 +14,10 @@ authRoutes.post('/signup', (req, res, next) => {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const email = req.body.email;
-    const favoriteClub = req.body.favoriteClub;
-    const playerPosition = req.body.playerPosition;
-    const summary = req.body.summary;
-    const avatar = req.body.avatar;
+    // const favoriteClub = req.body.favoriteClub;
+    // const playerPosition = req.body.playerPosition;
+    // const summary = req.body.summary;
+    // const avatar = req.body.avatar;
 
 
     if (!username || !password) {
