@@ -14,6 +14,7 @@ const teamSchema = new Schema({
   losses: Number,
   draws: Number,
   league: String,
+  details: String
 });
 
 const Team = mongoose.model("Team", teamSchema);
