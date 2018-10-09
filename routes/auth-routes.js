@@ -51,10 +51,10 @@ authRoutes.post('/signup', (req, res, next) => {
             firstName: firstName,
             lastName: lastName,
             email: email,
-            favoriteClub: favoriteClub,
-            playerPosition: playerPosition,
-            summary: summary,
-            avatar: avatar
+            // favoriteClub: favoriteClub,
+            // playerPosition: playerPosition,
+            // summary: summary,
+            // avatar: avatar
         });
   
         aNewUser.save(err => {
