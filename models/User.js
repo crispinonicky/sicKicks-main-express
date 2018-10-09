@@ -12,7 +12,7 @@ const userSchema = new Schema({
   summary: String,
   playerPosition: String,
   favoriteClub: String,
-  avatar: String,
+  avatar: {type: String, default: "http://profilepicturesdp.com/wp-content/uploads/2018/06/default-user-profile-picture-6.png"}
   // followers: Number,
   // following: Number,
 });
