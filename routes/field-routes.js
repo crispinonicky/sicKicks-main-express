@@ -26,6 +26,7 @@ router.post('/fields', (req, res, next)=>{
       price: req.body.price,
       teamsPlaying: req.body.teamsPlaying,
       comments: req.body.comments,
+      details: req.body.details
 
     })
       .then(response => {
@@ -67,7 +68,7 @@ router.get('/fields/:id', (req, res, next)=>{
 
 
 // PUT route => to update a specific project
-router.put('/projects/:id', (req, res, next)=>{
+router.put('/fields/:id', (req, res, next)=>{
 
     if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
       res.status(400).json({ message: 'Specified id is not valid' });

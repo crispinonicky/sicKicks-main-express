@@ -9,6 +9,7 @@ const userSchema = new Schema({
   lastName: String,
   email: String,
   videos: String,
+  summary: String,
   playerPosition: String,
   favoriteClub: String,
   avatar: String,

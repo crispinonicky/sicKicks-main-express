@@ -12,7 +12,8 @@ const fieldSchema = new Schema({
   // teamsPlaying: [{type: Schema.Types.ObjectId}],
   teamsPlaying: [],
   homeTeam: String,
-  awayTeam: String
+  awayTeam: String,
+  details: String
   // comments: [Object],
 });
 
