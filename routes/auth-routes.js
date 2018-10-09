@@ -17,6 +17,7 @@ authRoutes.post('/signup', (req, res, next) => {
     const favoriteClub = req.body.favoriteClub;
     const playerPosition = req.body.playerPosition;
     const summary = req.body.summary;
+    const avatar = req.body.avatar;
 
 
     if (!username || !password) {
@@ -52,7 +53,8 @@ authRoutes.post('/signup', (req, res, next) => {
             email: email,
             favoriteClub: favoriteClub,
             playerPosition: playerPosition,
-            summary: summary
+            summary: summary,
+            avatar: avatar
         });
   
         aNewUser.save(err => {

@@ -29,7 +29,7 @@ router.post('/teams', (req, res, next)=>{
       losses: req.body.losses,
       draws: req.body.draws,
       league: req.body.league,
-      details: req.body.details
+      details: req.body.details,
     })
       .then(response => {
         res.json(response);
