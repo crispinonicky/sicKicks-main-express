@@ -18,27 +18,36 @@ authRoutes.post('/signup', (req, res, next) => {
     // const playerPosition = req.body.playerPosition;
     // const summary = req.body.summary;
     // const avatar = req.body.avatar;
+    console.log("starting sign up process server side ------------------------  ", username);
+    console.log("starting sign up process server side ------------------------  ", password);
+    console.log("starting sign up process server side ------------------------  ", firstName);
+    console.log("starting sign up process server side ------------------------  ", lastName);
+    console.log("starting sign up process server side ------------------------  ", email);
 
 
     if (!username || !password) {
-      res.status(400).json({ message: 'Provide username and password' });
+        console.log("checking if username and pw is not null <<<<<<<<<<<<<<<<<<")
+      res.json({ message: 'Provide username and password' });
       return;
     }
 
     if(password.length < 7){
-        res.status(400).json({ message: 'Please make your password at least 7 characters long for security purposes.' });
+        console.log("checking password length greater than 7 >>>>>>>>>>>>>>>>>>")
+        res.json({ message: 'Please make your password at least 7 characters long for security purposes.' });
         return;
     }  
     User.findOne({ username }, (err, foundUser) => {
-        console.log('=-=-=-=-=-=-=-=-=-=-=-')
+        console.log('finding a user on db =-=-=-=-=-=-=-=-=-=-=-')
 
         if(err){
-            res.status(500).json({message: "Username check went bad."});
+            console.log("bad username check, have to retry {{{{{{{{{{{{{{{{{{{ ")
+            res.json({message: "Username check went bad."});
             return;
         }
 
         if (foundUser) {
-            res.status(400).json({ message: 'Username taken. Choose another one.' });
+            console.log("the username is in use<<<< THIS IS AN ERRRRROROOOOORRRRORROROROOR >>>>>>>>")
+            res.json({ message: 'Username taken. Choose another one.' });
             return;
         }
   
@@ -61,9 +70,10 @@ authRoutes.post('/signup', (req, res, next) => {
 
   
         aNewUser.save(err => {
-            console.log('savinGGGGGGGGGG')
+            console.log('savinGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG ', aNewUser);
             if (err) {
-                res.status(400).json({ message: 'Saving user to database went wrong.' });
+                console.log("shyte, this errored when saving the user &&&&&&&&&&&&&&&&&& ")
+                res.json({ message: 'Saving user to database went wrong.' });
                 return;
             }
             
@@ -73,15 +83,15 @@ authRoutes.post('/signup', (req, res, next) => {
 
 
                 if (err) {
-                    res.status(500).json({ message: 'Login after signup went bad.' });
+                    res.json({ message: 'Login after signup went bad.' });
                     return;
                 }
 
-                console.log('made it all the way')
+                console.log('made it all the way !!!!!!!!!!!!!!!!!!!!!!!!!')
             
                 // Send the user's information to the frontend
-                // We can use also: res.status(200).json(req.user);
-                res.status(200).json(aNewUser);
+                // We can use also: res.json(req.user);
+                res.json(aNewUser);
             });
         });
     });
